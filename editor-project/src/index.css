@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #18191a;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.homewrapper{
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  color: #fff;
+}
+
+.formwrapper{
+  background-color: #272727;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+}
+
+.label{
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.inputBox{
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.btn{
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: #99d855;
+  width: 100px;
+  margin-left: auto;
+}
+
+.create{
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.createBtn{
+  color: #99d855;
+  text-decoration: none;
+  border-bottom: 1px solid #99d855;
+}
+
+.mainwrap{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 230px 1fr;
+}
+
+.sidebar{
+  background-color: #272727;
+  padding: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner{
+  flex: 1;
+}
+
+.clientsList{
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.client{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.editorwrap{
+  /* background-color: black ;
+  min-height: calc(100vh-20px);
+  font-size: larger; */
+}
+
+.logo{
+  border-bottom: 1px solid #424242;
+  border-radius: 50%;
+}
+
+.leaveBtn{
+  width: 100%;
+  margin-top: 20px;
+}
+.copyBtn{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.CodeMirror{
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+  padding-top: 20px;
+}
