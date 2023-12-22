@@ -3,11 +3,13 @@ const app = express()
 const http = require('http')
 const ACTIONS = require('./editor-project/src/Actions')
 const { Server } = require('socket.io')
+const path = require('path')
 
 const server = http.createServer(app)
 const io = new Server(server)
 
 const userSocketmap = {}
+
 
 function getAllConnectedClients(roomId) {
     return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map((socketId) => {
@@ -20,7 +22,7 @@ function getAllConnectedClients(roomId) {
 
 io.on('connection', (socket) => {
     // console.log('Socket connected', socket.id);
-
+    
     socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
         userSocketmap[socket.id] = username
         socket.join(roomId)
@@ -40,7 +42,7 @@ io.on('connection', (socket) => {
     socket.on(ACTIONS.SYNC_CODE, ({ socketId, code }) => {
         io.to(socketId).emit(ACTIONS.CODE_CHANGE, { code })  
     })
-
+    
     socket.on(ACTIONS.CURSOR_POSITION, ({ roomId, position, username }) => {
         socket.in(roomId).emit(ACTIONS.CURSOR_POSITION, { position, username });
     });
@@ -55,10 +57,16 @@ io.on('connection', (socket) => {
         delete userSocketmap[socket.id]
         socket.leave()
     })
-
+    
 })
 
 
+app.use(express.static(path.join(__dirname, './editor-project/build')))
+
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, './editor-project/build/index.html'))
+})
 const port = 5000
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
