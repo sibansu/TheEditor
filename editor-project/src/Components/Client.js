@@ -5,9 +5,10 @@ function Client({username}) {
     <div className='client'>
         <Avatar name={username} size={50} round='15px' />
     
-    
+
         <span className="userName">{username}</span>
     </div>
+    
   )
 }
 
